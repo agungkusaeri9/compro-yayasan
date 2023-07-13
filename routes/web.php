@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,8 +19,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::redirect('/', '/login', 301);
-
+Route::get('/', [HomeController::class, 'index'])->name('home');
 Auth::routes();
 
 // admin

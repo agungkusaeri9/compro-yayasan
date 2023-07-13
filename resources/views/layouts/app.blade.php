@@ -1,80 +1,109 @@
 <!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html class="no-js" lang="zxx">
+
 <head>
     <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>{{ $title ?? 'Yayasan' }}</title>
+    <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
 
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>{{ config('app.name', 'Laravel') }}</title>
-
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
-
-    <!-- Scripts -->
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    <!-- CSS here -->
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/slicknav.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/flaticon.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/progressbar_barfiller.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/gijgo.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/animate.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/animated-headline.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/magnific-popup.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/fontawesome-all.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/themify-icons.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/slick.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/nice-select.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/style.css') }}">
+    <style>
+        .gambar-logo {
+            max-width: 100px;
+        }
+    </style>
+    @vite(['resources/js'])
+    @stack('styles')
 </head>
+
 <body>
-    <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto">
-
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ms-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                </li>
-                            @endif
-
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
-                    </ul>
+    <!-- ? Preloader Start -->
+    <div id="preloader-active">
+        <div class="preloader d-flex align-items-center justify-content-center">
+            <div class="preloader-inner position-relative">
+                <div class="preloader-circle"></div>
+                <div class="preloader-img pere-text">
+                    <img src="assets/img/logo/loder.png" alt="">
                 </div>
             </div>
-        </nav>
-
-        <main class="py-4">
-            @yield('content')
-        </main>
+        </div>
     </div>
+    <!-- Preloader Start -->
+    <x-Frontend.Navbar></x-Frontend.Navbar>
+    <main>
+        @yield('content')
+    </main>
+    <x-Frontend.Footer />
+    <!-- Scroll Up -->
+    <div id="back-top">
+        <a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>
+    </div>
+
+    <!-- JS here -->
+
+    <script src="{{ asset('assets/frontend/js/vendor/modernizr-3.5.0.min.js') }}"></script>
+    <!-- Jquery, Popper, Bootstrap -->
+    <script src="{{ asset('assets/frontend/js/vendor/jquery-1.12.4.min.js') }}"></script>
+    <script src="{{ asset('assets/frontend/js/popper.min.js') }}"></script>
+    <script src="{{ asset('assets/frontend/js/bootstrap.min.js') }}"></script>
+    <!-- Jquery Mobile Menu -->
+    <script src="{{ asset('assets/frontend/js/jquery.slicknav.min.js') }}"></script>
+
+    <!-- Jquery Slick , Owl-Carousel Plugins -->
+    <script src="{{ asset('assets/frontend/js/owl.carousel.min.js') }}"></script>
+    <script src="{{ asset('assets/frontend/js/slick.min.js') }}"></script>
+    <!-- One Page, Animated-HeadLin -->
+    <script src="{{ asset('assets/frontend/js/wow.min.js') }}"></script>
+    <script src="{{ asset('assets/frontend/js/animated.headline.js') }}"></script>
+    <script src="{{ asset('assets/frontend/js/jquery.magnific-popup.js') }}"></script>
+
+    <!-- Date Picker -->
+    <script src="{{ asset('assets/frontend/js/gijgo.min.js') }}"></script>
+
+    <!-- Video bg -->
+    <script src="{{ asset('assets/frontend/js/jquery.vide.js') }}"></script>
+
+    <!-- Nice-select, sticky -->
+    <script src="{{ asset('assets/frontend/js/jquery.nice-select.min.js') }}"></script>
+    <script src="{{ asset('assets/frontend/js/jquery.sticky.js') }}"></script>
+    <!-- Progress -->
+    <script src="{{ asset('assets/frontend/js/jquery.barfiller.js') }}"></script>
+
+    <!-- counter , waypoint,Hover Direction -->
+    <script src="{{ asset('assets/frontend/js/jquery.counterup.min.js') }}"></script>
+    <script src="{{ asset('assets/frontend/js/waypoints.min.js') }}"></script>
+    <script src="{{ asset('assets/frontend/js/jquery.countdown.min.js') }}"></script>
+    <script src="{{ asset('assets/frontend/js/hover-direction-snake.min.js') }}"></script>
+
+    <!-- contact js -->
+    <script src="{{ asset('assets/frontend/js/contact.js') }}"></script>
+    <script src="{{ asset('assets/frontend/js/jquery.form.js') }}"></script>
+    <script src="{{ asset('assets/frontend/js/jquery.validate.min.js') }}"></script>
+    <script src="{{ asset('assets/frontend/js/mail-script.js') }}"></script>
+    <script src="{{ asset('assets/frontend/js/jquery.ajaxchimp.min.js') }}"></script>
+
+    <!-- Jquery Plugins, main Jquery -->
+    <script src="{{ asset('assets/frontend/js/plugins.js') }}"></script>
+    <script src="{{ asset('assets/frontend/js/main.js') }}"></script>
+    @stack('scripts')
 </body>
+
 </html>
