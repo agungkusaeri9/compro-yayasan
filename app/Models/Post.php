@@ -32,4 +32,9 @@ class Post extends Model
             return '<span class="badge badge-danger">Disembunyikan</span>';
         }
     }
+
+    public function comments()
+    {
+        return $this->hasMany(PostComment::class, 'post_id', 'id');
+    }
 }

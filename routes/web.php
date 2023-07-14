@@ -5,7 +5,9 @@ use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -36,3 +38,13 @@ Route::middleware('auth')->name('admin.')->prefix('admin')->group(function () {
     Route::get('setting', [SettingController::class, 'index'])->name('setting.index');
     Route::post('setting', [SettingController::class, 'update'])->name('setting.update');
 });
+
+
+// visi misi
+Route::get('visi-misi', [PageController::class, 'visi_misi'])->name('visi-misi');
+Route::get('tentang', [PageController::class, 'tentang'])->name('tentang');
+Route::get('berita', [BeritaController::class, 'index'])->name('berita.index');
+Route::get('berita/komentar/{berita_id}', [BeritaController::class, 'komentar'])->name('berita.komentar');
+Route::get('berita/search', [BeritaController::class, 'index'])->name('berita.cari');
+
+Route::get('berita/{slug}', [BeritaController::class, 'show'])->name('berita.show');

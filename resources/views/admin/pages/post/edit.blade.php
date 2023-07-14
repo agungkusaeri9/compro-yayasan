@@ -52,6 +52,20 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="form-group">
+                                    <label for="short_description">Deskripsi Singkat</label>
+                                    <textarea name="short_description" id="short_description"
+                                        class="form-control @error('short_description') is-invalid @enderror" cols="30" rows="5">{{ $item->short_description }}</textarea>
+                                    @error('short_description')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="form-group">
                                     <label for="description">Deskripsi</label>
                                     <textarea name="description" id="description" class="form-control @error('description') is-invalid @enderror"
                                         cols="30" rows="5">{{ $item->description }}</textarea>

@@ -19,10 +19,10 @@
                                     <nav>
                                         <ul id="navigation">
                                             <li><a href="">Home</a></li>
-                                            <li><a href="">Berita</a></li>
-                                            <li><a href="">Kontak</a></li>
-                                            <li><a href="">Tentang</a></li>
-                                            <li><a href="">Visi & Misi</a></li>
+                                            <li><a href="{{ route('berita.index') }}">Berita</a></li>
+                                            {{-- <li><a href="{{ route('kontak') }}">Kontak</a></li> --}}
+                                            <li><a href="{{ route('tentang') }}">Tentang</a></li>
+                                            <li><a href="{{ route('visi-misi') }}">Visi & Misi</a></li>
                                         </ul>
                                     </nav>
                                 </div>

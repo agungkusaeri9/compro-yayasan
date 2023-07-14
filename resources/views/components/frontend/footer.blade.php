@@ -1,5 +1,5 @@
 <footer>
-    <div class="footer-wrappr " data-background="assets/img/gallery/footer-bg.png">
+    <div class="footer-wrappr " data-background="{{ asset('assets/frontend/img/gallery/footer-bg.png') }}">
         <div class="footer-area footer-padding ">
             <div class="container">
                 <div class="row d-flex justify-content-between">
@@ -7,36 +7,24 @@
                         <div class="single-footer-caption mb-50">
                             <!-- logo -->
                             <div class="footer-logo mb-25">
-                                <a href="index.html"><img src="assets/img/logo/logo2_footer.png" alt=""></a>
+                                <a href="{{ route('home') }}"><img src="assets/img/logo/logo2_footer.png"
+                                        alt=""></a>
                             </div>
                             <div class="footer-tittle mb-50">
-                                <p>Subscribe our newsletter to get updates about our services</p>
+                                <img src=" {{ $setting->image() }}" style="max-width:160px" class="img-fluid"
+                                    alt="">
                             </div>
                             <!-- Form -->
                             <div class="footer-form">
                                 <div id="mc_embed_signup">
-                                    <form target="_blank"
-                                        action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
-                                        method="get" class="subscribe_form relative mail_part" novalidate="true">
-                                        <input type="email" name="EMAIL" id="newsletter-form-email"
-                                            placeholder=" Email Address " class="placeholder hide-on-focus"
-                                            onfocus="this.placeholder = ''"
-                                            onblur="this.placeholder = 'Your email address'">
-                                        <div class="form-icon">
-                                            <button type="submit" name="submit" id="newsletter-submit"
-                                                class="email_icon newsletter-submit button-contactForm">
-                                                Subscribe
-                                            </button>
-                                        </div>
-                                        <div class="mt-10 info"></div>
-                                    </form>
+
                                 </div>
                             </div>
                             <!-- social -->
                             <div class="footer-social mt-50">
-                                <a href="#"><i class="fab fa-twitter"></i></a>
-                                <a href="https://bit.ly/sai4ull"><i class="fab fa-facebook-f"></i></a>
-                                <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                                <a href="{{ env('LINK_TWITTER') }}"><i class="fab fa-twitter"></i></a>
+                                <a href="{{ env('LINK_FACEBOOK') }}"><i class="fab fa-facebook-f"></i></a>
+                                <a href="{{ env('LINK_INSTAGRAM') }}"><i class="fab fa-instagram"></i></a>
                             </div>
                         </div>
                     </div>
@@ -44,13 +32,11 @@
                     <div class="col-xl-2 col-lg-2 col-md-4 col-sm-5">
                         <div class="single-footer-caption mb-50">
                             <div class="footer-tittle">
-                                <h4>Company</h4>
+                                <h4>Sitemap</h4>
                                 <ul>
-                                    <li><a href="#">Why choose us</a></li>
-                                    <li><a href="#"> Review</a></li>
-                                    <li><a href="#">Customers</a></li>
-                                    <li><a href="#">Blog</a></li>
-                                    <li><a href="#">Carrier</a></li>
+                                    <li><a href="{{ route('berita.index') }}">Berita</a></li>
+                                    <li><a href="{{ route('tentang') }}">Tentang</a></li>
+                                    <li><a href="{{ route('visi-misi') }}">Visi & Misi</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -58,28 +44,17 @@
                     <div class="col-xl-2 col-lg-2 col-md-4 col-sm-5">
                         <div class="single-footer-caption mb-50">
                             <div class="footer-tittle">
-                                <h4>Products</h4>
-                                <ul>
-                                    <li><a href="#">Why choose us</a></li>
-                                    <li><a href="#"> Review</a></li>
-                                    <li><a href="#">Customers</a></li>
-                                    <li><a href="#">Blog</a></li>
-                                    <li><a href="#">Carrier</a></li>
-                                </ul>
+
+
                             </div>
                         </div>
                     </div>
                     <div class="col-xl-2 col-lg-2 col-md-4 col-sm-5">
                         <div class="single-footer-caption mb-50">
                             <div class="footer-tittle">
-                                <h4>Support</h4>
+                                {{-- <h4>Support</h4>
                                 <ul>
-                                    <li><a href="#">Technology</a></li>
-                                    <li><a href="#"> Products</a></li>
-                                    <li><a href="#">Customers</a></li>
-                                    <li><a href="#">Quality</a></li>
-                                    <li><a href="#">Sales geography</a></li>
-                                </ul>
+                                    <li><a href="#">Technology</a></li> --}}
                             </div>
                         </div>
                     </div>
