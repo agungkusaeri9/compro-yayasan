@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
 use App\Models\Setting;
 use Illuminate\Http\Request;
 
@@ -11,6 +12,16 @@ class PageController extends Controller
     public function __construct()
     {
         $this->setting = Setting::first();
+    }
+
+    public function home()
+    {
+        $berita_terbaru = Post::where('status', 1)->latest()->limit(6)->get();
+        return view('pages.home', [
+            'title' => 'Selamat datang di website resmi yayasan.',
+            'setting' => $this->setting,
+            'berita_terbaru' => $berita_terbaru
+        ]);
     }
 
     public function visi_misi()

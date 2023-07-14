@@ -11,9 +11,9 @@ class BeritaController extends Controller
     {
         $keyword = request('keyword');
         if ($keyword) {
-            $items = Post::where('status', 1)->where('title', 'like', '%' . $keyword . '%')->orWhere('short_description', 'like', '%' . $keyword . '%')->latest()->paginate(2);
+            $items = Post::where('status', 1)->where('title', 'like', '%' . $keyword . '%')->orWhere('short_description', 'like', '%' . $keyword . '%')->latest()->paginate(8);
         } else {
-            $items = Post::where('status', 1)->latest()->paginate(2);
+            $items = Post::where('status', 1)->latest()->paginate(8);
         }
         return view('pages.berita.index', [
             'items' => $items,
@@ -24,6 +24,7 @@ class BeritaController extends Controller
     public function show($slug)
     {
         $item = Post::where('status', 1)->where('slug', $slug)->firstOrFail();
+        $item->increment('visitor', 1);
         $berita_terbaru = Post::where('status', 1)->latest()->limit(8)->get();
         return view('pages.berita.show', [
             'item' => $item,

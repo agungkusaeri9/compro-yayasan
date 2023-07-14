@@ -18,11 +18,14 @@
                                 <div class="main-menu d-none d-lg-block">
                                     <nav>
                                         <ul id="navigation">
-                                            <li><a href="">Home</a></li>
+                                            <li><a href="{{ route('home') }}">Home</a></li>
                                             <li><a href="{{ route('berita.index') }}">Berita</a></li>
                                             {{-- <li><a href="{{ route('kontak') }}">Kontak</a></li> --}}
-                                            <li><a href="{{ route('tentang') }}">Tentang</a></li>
                                             <li><a href="{{ route('visi-misi') }}">Visi & Misi</a></li>
+                                            <li><a href="{{ route('tentang') }}">Tentang</a></li>
+                                            @auth
+                                                <li><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
+                                            @endauth
                                         </ul>
                                     </nav>
                                 </div>
